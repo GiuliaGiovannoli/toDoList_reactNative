@@ -2,10 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 
-const Header = props => {
+export default function DetailScreen () {
+
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>#LET'SDOIT</Text>
+      <Text style={styles.title}>i m detail</Text>
     </View>
   );
 };
@@ -25,5 +26,3 @@ const styles = StyleSheet.create({
     color: 'black',
   }
 });
-
-export default Header;
