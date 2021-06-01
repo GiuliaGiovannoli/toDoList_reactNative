@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, ImageBackground, TouchableOpacity, Image } from 'react-native'; 
-
-import AppLoading from 'expo-app-loading'
 
 import {
   useFonts,
@@ -9,8 +6,9 @@ import {
   Montserrat_400Regular_Italic
 } from '@expo-google-fonts/montserrat';
 
-import CategoriesGrid from './components/CategoriesGrid';
-import Header from './components/Header'
+import AppLoading from 'expo-app-loading'
+
+import NotesNavigation from './navigation/NotesNavigation';
 
 
 export default function App() {
@@ -24,11 +22,7 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-    <>
-    <Header />
-    <CategoriesGrid />
-    </>
+    <NotesNavigation />
     );
   }
 };
-
