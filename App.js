@@ -4,11 +4,12 @@ import {
   useFonts,
   Montserrat_200ExtraLight,
   Montserrat_400Regular_Italic
-} from '@expo-google-fonts/montserrat';
+} from '@expo-google-fonts/montserrat'
 
 import AppLoading from 'expo-app-loading'
 
-import NotesNavigation from './navigation/NotesNavigation';
+import NotesNavigation from './navigation/NotesNavigation'
+import { ListOfNotesProvider } from './context/NotesArrayContext'
 
 
 export default function App() {
@@ -19,10 +20,13 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
-  } else {
-    return (
+    return <AppLoading />
+  } 
+
+return (
+    <ListOfNotesProvider>
     <NotesNavigation />
-    );
-  }
-};
+    </ListOfNotesProvider>
+    )
+}
+

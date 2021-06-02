@@ -1,33 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, ImageBackground, TouchableOpacity, Image } from 'react-native'; 
+import { StyleSheet, Text, View, Button, ImageBackground, Image, Pressable } from 'react-native'; 
 
-import { AntDesign } from '@expo/vector-icons';
 
 export default function CategoriesScreen(props) {
 
     return (
       <View style={styles.container}>
-        <View style={styles.button}>
-        <Button
-          style={styles.category} title="TO DO" 
-          onPress={(e) => {props.navigation.navigate('Notes')}}
-          />
-          <AntDesign style={styles.icon} name="pluscircleo" size={36} color="white" />
-        </View>
-        <View style={styles.button}>
-        <Button
-          style={styles.category} title="DOING" 
-          onPress={(e) => {props.navigation.navigate('Notes')}}
-          />
-          <AntDesign style={styles.icon} name="pluscircleo" size={36} color="white" />
-        </View>
-        <View style={styles.button}>
-        <Button
-          title="DONE" style={styles.category} 
-          onPress={(e) => {props.navigation.navigate('Notes')}}
-          />
-          <AntDesign style={styles.icon} name="pluscircleo" size={36} color="white" />
-        </View>
+      <Pressable
+          style={styles.category}  
+          onPress={(e) => {props.navigation.navigate('Notes')}}>
+        <ImageBackground style={styles.image} source={require('../assets/todo.jpg')}>
+            <View style={styles.textContainer}><Text style={styles.text}>TO DO </Text></View>
+        </ImageBackground>
+        </Pressable>
+        <Pressable
+          style={styles.category}  
+          onPress={(e) => {props.navigation.navigate('Notes')}}>
+        <ImageBackground style={styles.image} source={require('../assets/doing.jpg')}>
+        <View style={styles.textContainer}><Text style={styles.text}>DOING</Text></View>
+        </ImageBackground>
+        </Pressable>
+        <Pressable
+          style={styles.category}   
+          onPress={(e) => {props.navigation.navigate('Notes')}}>
+        <ImageBackground style={styles.image} source={require('../assets/done.jpg')} onPress={(e) => {props.navigation.navigate('Notes')}}>
+        <View style={styles.textContainer}><Text style={styles.text}>DONE!</Text></View>
+        </ImageBackground>
+        </Pressable>
         </View>
     );
   }
@@ -40,21 +39,27 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 12,
   },
-  button: {
+  image: {
     width: 250,
-    height: 50,
-    backgroundColor: '#deeeea',
-    borderRadius: 5,
+    height: 200,
+    borderRadius: 15,
     marginBottom: 36,
     alignSelf: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    alignContent: 'space-around',
+    overflow: 'hidden',
   },
   category: {
     alignSelf: 'center',
   },
-  icon: {
-    alignSelf: 'center',
+  textContainer: {
+    width: 135,
+    height: 40,
+    backgroundColor: '#deeeea',
+    borderBottomRightRadius: 10,
   },
+  text: {
+    fontFamily: 'Montserrat_400Regular_Italic',
+    fontSize: 32,
+    color: '#f4a9a8',
+    textAlign: 'center'
+  }
 });
