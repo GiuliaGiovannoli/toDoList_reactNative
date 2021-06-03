@@ -8,21 +8,21 @@ export default function CategoriesScreen(props) {
       <View style={styles.container}>
       <Pressable
           style={styles.category}  
-          onPress={(e) => {props.navigation.navigate('Notes')}}>
+          onPress={(e) => {props.navigation.navigate('Notes', { param: 'toDo' })}}>
         <ImageBackground style={styles.image} source={require('../assets/todo.jpg')}>
             <View style={styles.textContainer}><Text style={styles.text}>TO DO </Text></View>
         </ImageBackground>
         </Pressable>
         <Pressable
           style={styles.category}  
-          onPress={(e) => {props.navigation.navigate('Notes')}}>
+          onPress={(e) => {props.navigation.navigate('Notes', { param: 'doing' })}}>
         <ImageBackground style={styles.image} source={require('../assets/doing.jpg')}>
         <View style={styles.textContainer}><Text style={styles.text}>DOING</Text></View>
         </ImageBackground>
         </Pressable>
         <Pressable
           style={styles.category}   
-          onPress={(e) => {props.navigation.navigate('Notes')}}>
+          onPress={(e) => {props.navigation.navigate('Notes', { param: 'done' })}}>
         <ImageBackground style={styles.image} source={require('../assets/done.jpg')} onPress={(e) => {props.navigation.navigate('Notes')}}>
         <View style={styles.textContainer}><Text style={styles.text}>DONE!</Text></View>
         </ImageBackground>
