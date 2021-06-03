@@ -47,9 +47,9 @@ export default function NotesNavigation() {
       <Tab.Navigator screenOptions={({ route }) => ({
           tabBarIcon: () => {
             if (route.name === 'NEW') {
-              return <AntDesign name="pluscircleo" size={36} />
+              return <AntDesign name="pluscircleo" size={36} color="grey" />
             } else if (route.name === 'LISTS') {
-              return <AntDesign name="bars" size={36} />
+              return <AntDesign name="bars" size={36} color="grey" />
             }
           },
         })}

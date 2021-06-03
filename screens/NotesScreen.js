@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { ListOfNotesContext } from '../context/NotesArrayContext'
 
 
-export default function NotesScreen ({ route }) {
+export default function NotesScreen ({navigation, route }) {
 
   const listOfNotes = useContext(ListOfNotesContext)
 
@@ -53,6 +53,10 @@ export default function NotesScreen ({ route }) {
     listOfNotes.setArrayNote(updatingArray)}
   }
 
+  function handleEditing(item) {
+    navigation.navigate('Detail', {param: item.id})
+  }
+
 
   return (
     <View style={styles.container}>
@@ -67,7 +71,7 @@ export default function NotesScreen ({ route }) {
             <Text style={styles.info}>{itemData.item.info}</Text>
             <View style={styles.buttons}>
             <AntDesign name="export" size={36} color="grey" onPress={() => moveToDoing(itemData.item)} />
-          <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" />
+          <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" onPress={() => handleEditing(itemData.item)} />
             </View>
           </View>) 
           : param === 'doing' && itemData.item.doing ? 
@@ -76,7 +80,7 @@ export default function NotesScreen ({ route }) {
             <Text style={styles.info}>{itemData.item.info}</Text>
             <View style={styles.buttons}>
             <AntDesign name="export2" size={36} color="grey" onPress={() => moveBackToDo(itemData.item)} />
-            <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" />
+            <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" onPress={() => handleEditing(itemData.item)} />
             <AntDesign name="check" size={36} color="grey" onPress={() => moveToDone(itemData.item)} />
             </View>
           </View>) 
@@ -86,13 +90,12 @@ export default function NotesScreen ({ route }) {
             <Text style={styles.info}>{itemData.item.info}</Text>
             <View style={styles.buttons}>
             <AntDesign name="close" size={36} color="grey" onPress={() => deleteNote(itemData.item)} />
-          <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" />
+          <MaterialCommunityIcons name="square-edit-outline" size={36} color="grey" onPress={() => handleEditing(itemData.item)} />
             </View>
           </View>) 
           : null
         )}
       />
-
 
     </View>
   );
