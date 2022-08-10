@@ -1,6 +1,6 @@
 # Hello there! 
 
-# BeautyLife
+# TO DO LIST
 
 ## About
 
